@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>班級小管家 (Pro版)</title>
+    <title>Pro ++班級助理</title>
     
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="班級小管家">
+    <meta name="apple-mobile-web-app-title" content="Pro ++班級助理">
     <meta name="theme-color" content="#FFD700">
     
     <link rel="apple-touch-icon" id="ios-icon" href="">
@@ -24,6 +24,7 @@
 
     <script>
         (function() {
+            // 加入了 Pro++ 文字在左上角
             const svgSource = `
             <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                 <rect width="512" height="512" rx="100" fill="#FFD700"/>
@@ -31,6 +32,7 @@
                 <rect x="86" y="126" width="340" height="260" rx="12" fill="#1B5E20"/>
                 <path d="M136 210c10-10 60-10 70 0s10 20 0 30M 136 285c10-10 100-10 110 0M 136 360c10-10 150-10 160 0" stroke="#FFF" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.8"/>
                 <path d="M360 350l40-40" stroke="#FFF" stroke-width="16" stroke-linecap="round"/>
+                <text x="25" y="105" font-family="Arial, sans-serif" font-size="95" font-weight="900" fill="#FF1744" stroke="white" stroke-width="6" style="filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3));">Pro++</text>
             </svg>`;
 
             function generateAppleIcon() {
@@ -91,7 +93,7 @@
     <div id="root">
         <div id="loading-screen">
             <div class="loader"></div>
-            <h2 style="color: #5D4037; font-weight: bold; font-family: sans-serif; font-size: 1.5rem;">Class Manage</h2>
+            <h2 style="color: #5D4037; font-weight: bold; font-family: sans-serif; font-size: 1.5rem;">Pro ++班級助理</h2>
             <p style="color: #8D6E63; font-size: 1rem; margin-top: 5px;">啟動中...</p>
         </div>
     </div>
@@ -1261,7 +1263,7 @@
               <style>{customStyles}</style>
               <Modal config={modalConfig} onClose={() => setModalConfig(prev => ({...prev, show: false}))} />
               
-              <header className="pt-8 pb-3 px-6 flex justify-between items-center"><h1 className="text-4xl font-bold text-coffee tracking-wider transform -rotate-1 flex items-center gap-3"><Icon name="BookOpen" className="w-10 h-10" /> 班級小管家</h1><div className="flex gap-2"><button onClick={() => setActiveTab('manual')} className="bg-white p-2 rounded-full border-2 border-coffee shadow-sm active:scale-95 transition" title="使用說明書"><Icon name="HelpCircle" className="w-7 h-7 text-coffee"/></button><div className="bg-white p-2 rounded-full border-2 border-coffee shadow-sm flex items-center justify-center" title={saveStatus === 'saved' ? '已儲存' : '儲存中...'}>{saveStatus === 'saved' ? <Icon name="Check" className="w-7 h-7" /> : <Icon name="Loader" className="w-7 h-7" />}</div></div></header>
+              <header className="pt-8 pb-3 px-6 flex justify-between items-center"><h1 className="text-4xl font-bold text-coffee tracking-wider transform -rotate-1 flex items-center gap-3"><Icon name="BookOpen" className="w-10 h-10" /> Pro ++班級助理</h1><div className="flex gap-2"><button onClick={() => setActiveTab('manual')} className="bg-white p-2 rounded-full border-2 border-coffee shadow-sm active:scale-95 transition" title="使用說明書"><Icon name="HelpCircle" className="w-7 h-7 text-coffee"/></button><div className="bg-white p-2 rounded-full border-2 border-coffee shadow-sm flex items-center justify-center" title={saveStatus === 'saved' ? '已儲存' : '儲存中...'}>{saveStatus === 'saved' ? <Icon name="Check" className="w-7 h-7" /> : <Icon name="Loader" className="w-7 h-7" />}</div></div></header>
               <main className="px-5 h-full pt-4">{activeTab === 'basic' && renderBasicInfo()}{activeTab === 'log' && renderLog()}{activeTab === 'review' && renderReview()}{activeTab === 'report' && renderReports()}{activeTab === 'settings' && renderSettings()}{activeTab === 'manual' && renderManual()}</main>
               <StudentSelector 
                   isOpen={isSelectorOpen} 
